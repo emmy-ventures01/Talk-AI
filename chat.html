@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Talk AI — intelligent conversations, ideas and answers.">
+
+    <title>Talk AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="chat-app">
+
+        <!-- ==============================
+             TOP HEADER
+        =============================== -->
+
+        <header class="chat-header">
+
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="brand-name">
+                    Talk <strong>AI</strong>
+                </div>
+            </div>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Open menu"
+                aria-controls="sideMenu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </header>
+
+
+        <!-- ==============================
+             MAIN CHAT
+        =============================== -->
+
+        <main
+            class="chat-container"
+            id="chatContainer"
+        >
+
+            <!-- WELCOME SCREEN -->
+
+            <section
+                class="empty-chat"
+                id="emptyChat"
+            >
+
+                <div class="welcome-symbol" aria-hidden="true">
+
+                    <div class="symbol-ring ring-one"></div>
+                    <div class="symbol-ring ring-two"></div>
+
+                    <div class="symbol-core">
+                        AI
+                    </div>
+
+                </div>
+
+                <h1>How can I help?</h1>
+
+                <p>
+                    Ask Talk AI anything, explore ideas,
+                    learn something new or get things done.
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 CONVERSATION
+            =============================== -->
+
+            <section
+                class="messages"
+                id="messages"
+                aria-live="polite"
+                aria-label="Conversation messages"
+            >
+
+                <!--
+                    JavaScript will dynamically insert
+                    user and AI messages here.
+                -->
+
+
+                <!-- ==============================
+                     AI TYPING BUBBLE
+                =============================== -->
+
+                <div
+                    class="message-row ai-row typing-row"
+                    id="typingBubble"
+                    hidden
+                >
+
+                    <div
+                        class="ai-avatar"
+                        aria-hidden="true"
+                    >
+                        AI
+                    </div>
+
+                    <div
+                        class="typing-bubble"
+                        aria-label="Talk AI is generating a response"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ==============================
+             MESSAGE INPUT
+        =============================== -->
+
+        <footer class="composer-area">
+
+            <form
+                class="message-form"
+                id="messageForm"
+                autocomplete="off"
+            >
+
+                <div class="input-wrapper">
+
+                    <textarea
+                        id="messageInput"
+                        name="message"
+                        rows="1"
+                        maxlength="10000"
+                        placeholder="Message Talk AI..."
+                        aria-label="Message Talk AI"
+                    ></textarea>
+
+                    <button
+                        class="send-button"
+                        id="sendButton"
+                        type="submit"
+                        aria-label="Send message"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M4 4.5L20 12L4 19.5L6.5 13L15 12L6.5 11L4 4.5Z"
+                                fill="currentColor"
+                            />
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+            <p class="composer-note">
+                Talk AI can make mistakes. Check important information.
+            </p>
+
+        </footer>
+
+
+        <!-- ==============================
+             MENU OVERLAY
+        =============================== -->
+
+        <div
+            class="menu-overlay"
+            id="menuOverlay"
+            hidden
+        ></div>
+
+
+        <!-- ==============================
+             SIDE MENU
+        =============================== -->
+
+        <aside
+            class="side-menu"
+            id="sideMenu"
+            aria-hidden="true"
+        >
+
+            <div class="side-menu-header">
+
+                <div class="side-brand">
+                    Talk <strong>AI</strong>
+                </div>
+
+                <button
+                    class="close-menu"
+                    id="closeMenu"
+                    type="button"
+                    aria-label="Close menu"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="side-menu-content">
+
+                <!-- NEW CHAT -->
+
+                <button
+                    class="menu-item"
+                    id="newChatButton"
+                    type="button"
+                >
+                    <span
+                        class="menu-icon"
+                        aria-hidden="true"
+                    >
+                        ＋
+                    </span>
+
+                    <span>
+                        New chat
+                    </span>
+                </button>
+
+
+                <!-- CLEAR CHAT -->
+
+                <button
+                    class="menu-item"
+                    id="clearChatButton"
+                    type="button"
+                >
+                    <span
+                        class="menu-icon"
+                        aria-hidden="true"
+                    >
+                        ⌫
+                    </span>
+
+                    <span>
+                        Clear conversation
+                    </span>
+                </button>
+
+
+                <div class="menu-divider"></div>
+
+
+                <!-- HELP -->
+
+                <button
+                    class="menu-item"
+                    id="helpButton"
+                    type="button"
+                >
+                    <span
+                        class="menu-icon"
+                        aria-hidden="true"
+                    >
+                        ?
+                    </span>
+
+                    <span>
+                        Help
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- ==============================
+                 MENU FOOTER
+            =============================== -->
+
+            <div class="side-menu-footer">
+
+                <div class="account-label">
+                    TALK AI
+                </div>
+
+                <div class="account-status">
+                    Intelligent AI conversation
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>
